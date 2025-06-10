@@ -1,15 +1,53 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import service.MainService;
+import view.MainView;
+import view.View;
+
+/*
+
+Dependency Inversion Principle
+Injeção Correta:
+public interface IProdutoDAO {
+    void save(Produto produto);
+    Collection<Produto> findAll();
+    void delete(int id);
+}
+
+
+public class ProdutoDAO implements IProdutoDAO {
+    // Implementações dos métodos
+}
+
+public class ProdutoService {
+    private IProdutoDAO produtoDAO;
+
+    public ProdutoService(IProdutoDAO produtoDAO) {
+        this.produtoDAO = produtoDAO;
+    }
+
+    // Demais métodos...
+}
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        IProdutoDAO produtoDAO = new ProdutoDAO(); // Dependência concreta instanciada no "nível alto"
+        ProdutoService produtoService = new ProdutoService(produtoDAO);
+        produtoService.salvar();
+    }
+}
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
+Single Responsibility Principle
+
+
+*/
+public class Main {
+    public static void main(String[] args) {
+        MainView view = new MainView();
+        MainService service = new MainService(view);
+
+        service.capturar();
     }
 }
