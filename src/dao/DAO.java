@@ -1,6 +1,13 @@
 package dao;
 
 
+import entity.Entity;
 
-public interface DAO<T extends >{
+import java.util.Collection;
+
+public interface DAO<T extends Entity>{
+    void save(T entity);
+    Collection<T> findAll();
+    void update(int id, T entity);
+    void delete(int id);
 }

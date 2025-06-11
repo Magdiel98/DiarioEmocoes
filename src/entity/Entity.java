@@ -14,4 +14,7 @@ public class Entity {
 
     @Override
     public boolean equals(Object idEntity)
+    {
+        return idEntity instanceof Entity && Integer.valueOf(this.id).equals(((Entity)idEntity).getId());
+    }
 }
