@@ -1,12 +1,11 @@
-package dao;
-
+package database;
 
 import entity.Entity;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public interface DAO<T extends Entity>{
+public interface DatabaseTableI<T extends Entity>{
     void save(T entity);
     Optional<T> findById(int id);
     Collection<T> findAll();
