@@ -1,6 +1,8 @@
 package database;
 
 
+import entity.Entity;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +38,7 @@ public class Database {
 
     }
 
-    public <T extends Entity> Collection<T> findAll(Class<T> classe) throws DatabaseException
+    public <T extends Entity> Collection<T> findAll(Class<T> classe)
     {
 
             if (!tabelas.containsKey(classe)) {
@@ -48,7 +50,7 @@ public class Database {
 
     }
 
-    public <T extends Entity> void update(Class<T> classe, int id, T entity) throws DatabaseException
+    public <T extends Entity> void update(Class<T> classe, int id, T entity)
     {
         if (!tabelas.containsKey(classe)) {
             tabelas.put(classe, new DatabaseTable<T>());
@@ -58,7 +60,7 @@ public class Database {
 
     }
 
-    public <T extends Entity> void delete(Class<T> classe, int id) throws DatabaseException
+    public <T extends Entity> void delete(Class<T> classe, int id)
     {
 
         if (!tabelas.containsKey(classe)) {

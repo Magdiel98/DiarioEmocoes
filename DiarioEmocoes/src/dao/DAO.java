@@ -1,6 +1,8 @@
 package dao;
 
 
+import entity.Entity;
+
 import java.util.Collection;
 
 public interface DAO<T extends Entity>{
